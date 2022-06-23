@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="org.d3if2024.assesment2.ui.home.HomeFragment"
+        android:label="Konversi Suhu"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_celciusToFarenhitFragment2"
+            app:destination="@id/celciusToFarenhitFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_celciusToReamurFragment"
+            app:destination="@id/celciusToReamurFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_celciusToKelvinFragment2"
+            app:destination="@id/celciusToKelvinFragment2" />
+        <action
+            android:id="@+id/action_homeFragment_to_historiFragment"
+            app:destination="@id/historiFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutMeFragment"
+            app:destination="@id/aboutMeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/celciusToFarenhitFragment2"
+        android:name="org.d3if2024.assesment2.ui.CelciusToFarenhit.CelciusToFarenhitFragment"
+        android:label="Celcius To Farenhit"
+        tools:layout="@layout/fragment_celcius_to_farenhit"/>
+    <fragment
+        android:id="@+id/celciusToKelvinFragment2"
+        android:name="org.d3if2024.assesment2.ui.CelciusToKelvin.CelciusToKelvinFragment"
+        android:label="Celcius To Kelvin"
+        tools:layout="@layout/fragment_celcius_to_kelvin" />
+    <fragment
+        android:id="@+id/celciusToReamurFragment"
+        android:name="org.d3if2024.assesment2.ui.CelciusToReamur.CelciusToReamurFragment"
+        android:label="Celcius To Reamur"
+        tools:layout="@layout/fragment_celcius_to_reamur" />
+    <fragment
+        android:id="@+id/historiFragment"
+        android:name="org.d3if2024.assesment2.ui.histori.HistoriFragment"
+        android:label="HistoriFragment"
+        tools:layout="@layout/fragment_histori"/>
+    <fragment
+        android:id="@+id/aboutMeFragment"
+        android:name="org.d3if2024.assesment2.ui.aboutme.AboutMeFragment"
+        android:label="About Me"
+        tools:layout="@layout/fragment_about_me">
+        <action
+            android:id="@+id/action_aboutMeFragment_self"
+            app:destination="@id/aboutMeFragment" />
+    </fragment>
+</navigation>

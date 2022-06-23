@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Assemsent 2 - Konversi Suhu</string>
+    <string name="convert">Masukkan Data Celcius</string>
+    <string name="suhu1">Celcius Convert Farenheit</string>
+    <string name="suhu2">Celcius Convert Reamur</string>
+    <string name="suhu3">Celcius Convert Kelvin</string>
+    <string name="suhu4">sejarah singkat Suhu</string>
+    <string name="result">Nilai Hasil Konversi: %s</string>
+    <string name="penjelasan_suhu1">Termometer ini diciptakan oleh Anders Celsius dari Swedia pada tahun 1701 – 1744.
+• Titik tetap atas memakai air yang sedang dalam keadaan mendidih (100oC).
+• Sedangkan untuk titik tetap bawah menggunakan air yang membeku atau es yang keadaannya sedang mencair (0oC).
+• Perbandingan skalanya yaitu 100.</string>
+    <string name="penjelasan_suhu2">
+        SKALA Réaumur adalah skala suhu yang dinamai menurut René Antoine Ferchault de Réaumur, yang pertama mengusulkannya pada 1731. Titik beku air adalah 0 derajat Réaumur, titik didih air 80 derajat. Jadi, satu derajat Réaumur sama dengan 1,25 derajat Celsius atau kelvin.
+        René Antoine Ferchault de Réaumur, lahir pada 28 Februari 1683 di La Rochelle, Perancis. Ia adalah ilmuwan Perancis yang memiliki kontribusi di berbagai bidang, khususnya bidang entomologi. Ia adalah ilmuwan yang memperkenalkan skala suhu Réaumur.
+    </string>
+    <string name="penjelasan_suhu3">Lalu untuk jenis termometer ini dibuat oleh Daniel Gabriel Fahrenheit yang asalnya dari Jerman pada tahun 1986 sampai dengan 1736
+• Titik tetap atas yaitu memakai air mendidih (212oF).
+• Titik tetap bawah juga menggunakan es yang mencair (32oF).
+• Perbandingan skalanya yaitu 180.</string>
+    <string name="penjelasan_suhu4">
+        Imuwan terakhir yang berperan dalam perkembangan termometer adalah Lord Kelvin. Beliau lahir di Britania pada tahun 1824 dan ia lahir dengan nama William Thomson. Lord Kelvin bisa dikatakan sebagai orang yang pertama kali memberikan usulan pada skala mutlak dari suhu.
+        Setelah skala Celcius ditemukan, Lord Kelvin menemukan atau menciptakan skala termometer yang baru. Skala yang diciptakan oleh Lord Kelvin merupakan hasil dari perkembangan gagasan suhu mutlak atau dikenal sebagai “Hukum Kedua Teoridinamika”. Skala termometer yang ditemukan oleh Lord Kelvin dinamakan skala termometer Kelvin.
+    </string>
+    <string name="hitung">Hitung</string>
+    <string name="penjelasan_assesment1">Aplikasi Konversi Suhu dan Ringkasan Sejarah Ditemukannya Suhu</string>
+    <string name="nama">Airlangga Permana Putra</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hapus_histori">Hapus Histori</string>
+    <string name="konfirmasi_hapus">Hapus semua histori?</string>
+    <string name="hapus">Hapus</string>
+    <string name="batal">Batal</string>
+    <string name="hasil_x" formatted="true">$s</string>
+    <string name="data_x">Suhu: %1$.1f - TB: %2$.1f - %3$s</string>
+    <string name="farenhit">Farenhit</string>
+    <string name="kelvin">Kelvin</string>
+    <string name="reamur">Reamur</string>
+    <string name="copyright">Aplikasi Konversi Suhu Dari Celcius Ke Suhu Lainnya dan juga terdapat Sejarah Singkat Tentang ditemukannya Suhu\ndibuat untuk Menyelesaikan Tugas Assesment2 Mobpro \n\n@Copyright Airlangga Permana Putra \n23 Mei 2022</string>
+    <string name="share_data">Share Data</string>
+    <string name="title_activity_sejarah_singkat">SejarahSingkatActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
