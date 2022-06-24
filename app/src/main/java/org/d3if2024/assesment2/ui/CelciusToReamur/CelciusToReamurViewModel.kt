@@ -25,7 +25,7 @@ class CelciusToReamurViewModel(private val db: SuhuDao) : ViewModel() {
         val hasil = suhuCeclius*4/5
         val dataKonversi = SuhuEntity(
             suhuCelcius = suhuCeclius,
-            hasilConvertCelcius = "${hasil.toString()}°R"
+            hasilConvertCelcius = "${hasil}°R"
         )
         hasilKonversi.value = dataKonversi.hitungKonversiSuhu()
         viewModelScope.launch {

@@ -57,7 +57,7 @@ class HistoriAdapter :
             val circleBg = kategoriTextView.background as GradientDrawable
             circleBg.setColor(ContextCompat.getColor(root.context, colorRes))
             tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
-            bmiTextView.text = "Suhu Celcius ${item.suhuCelcius.toString()}℃"
+            bmiTextView.text = "Suhu Celcius ${item.suhuCelcius}℃"
             dataTextView.text = "Hasil Convert ${item.hasilConvertCelcius}"
         }
     }

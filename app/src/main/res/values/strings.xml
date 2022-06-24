@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Assemsent 2 - Konversi Suhu</string>
+    <string name="app_name">Assemsent 3 - Konversi Suhu</string>
     <string name="convert">Masukkan Data Celcius</string>
     <string name="suhu1">Celcius Convert Farenheit</string>
     <string name="suhu2">Celcius Convert Reamur</string>

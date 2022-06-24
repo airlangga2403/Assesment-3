@@ -25,7 +25,7 @@ class CelciusToKelvinViewModel(private val db: SuhuDao) : ViewModel() {
         val hasil = suhuCeclius+273
         val dataKonversi = SuhuEntity(
             suhuCelcius = suhuCeclius,
-            hasilConvertCelcius = "${hasil.toString()}°K"
+            hasilConvertCelcius = "${hasil}°K"
         )
         hasilKonversi.value = dataKonversi.hitungKonversiSuhu()
         viewModelScope.launch {

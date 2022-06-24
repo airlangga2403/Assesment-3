@@ -1,14 +1,24 @@
 package org.d3if2024.assesment2.ui.sejarahsingkat
 
+import android.app.Notification
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_sejarah_singkat.*
+import kotlinx.android.synthetic.main.row_items.*
+import org.d3if2024.assesment2.MainActivity
 import org.d3if2024.assesment2.R
 import org.d3if2024.assesment2.adapter.SejarahAdapter
+import org.d3if2024.assesment2.databinding.ActivitySejarahSingkatBinding
 import org.d3if2024.assesment2.network.ApiInterfacePenemuSuhu
 import org.d3if2024.assesment2.network.DataPenemuSuhuItem
 import retrofit2.Call
@@ -19,21 +29,75 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 const val BASE_URL = "https://mocki.io/"
 
-
 class SejarahSingkat : AppCompatActivity() {
-    private var progressBar: ProgressBar? = null
+    private val CHANNEL_ID = "i.apps.notifications"
     lateinit var sejarahAdapter: SejarahAdapter
+    private lateinit var binding: ActivitySejarahSingkatBinding
     lateinit var linearLayoutManager: LinearLayoutManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sejarah_singkat)
-        progressBar = findViewById<ProgressBar>(R.id.progressBar) as ProgressBar
+        binding = ActivitySejarahSingkatBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         recyclerview.setHasFixedSize(true)
-
         linearLayoutManager = LinearLayoutManager(this)
         recyclerview.layoutManager = linearLayoutManager
-        getMyData()
+        binding.progressBar.visibility = View.VISIBLE
+        if (checkForInternet(this)){
+//            binding.progressBar.visibility = View.GONE
+            getMyData()
+//            var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+//                .setSmallIcon(R.drawable.celcius)
+//                .setContentTitle("textTitle")
+//                .setContentText("textContent")
+//                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+//
+//            Notification.Builder(MainActivity.this, "channel_id")
+
+        } else {
+            binding.progressBar.visibility = View.VISIBLE
+            Toast.makeText(this, "Please Activated You Interenet Connection", Toast.LENGTH_SHORT).show()
+        }
+
     }
+    private fun checkForInternet(context: Context): Boolean {
+
+        // register activity with the connectivity manager service
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        // if the android version is equal to M
+        // or greater we need to use the
+        // NetworkCapabilities to check what type of
+        // network has the internet connection
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+            // Returns a Network object corresponding to
+            // the currently active default data network.
+            val network = connectivityManager.activeNetwork ?: return false
+
+            // Representation of the capabilities of an active network.
+            val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+
+            return when {
+                // Indicates this network uses a Wi-Fi transport,
+                // or WiFi has network connectivity
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+
+                // Indicates this network uses a Cellular transport. or
+                // Cellular has network connectivity
+                activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> true
+
+                // else return false
+                else -> false
+            }
+        } else {
+            // if the android version is below M
+            @Suppress("DEPRECATION") val networkInfo =
+                connectivityManager.activeNetworkInfo ?: return false
+            @Suppress("DEPRECATION")
+            return networkInfo.isConnected
+        }
+    }
+
 
     private fun getMyData() {
         val retrofitBuilder = Retrofit.Builder()
@@ -51,16 +115,16 @@ class SejarahSingkat : AppCompatActivity() {
             ) {
                 val responseBody = response.body()!!
                 if (response.isSuccessful) {
-                    progressBar?.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
+                    binding.progressBar.visibility = View.INVISIBLE
                     sejarahAdapter = SejarahAdapter(baseContext, responseBody)
                     sejarahAdapter.notifyDataSetChanged()
                     recyclerview.adapter = sejarahAdapter
                 }
-//                progressBar?.visibility = View.INVISIBLE
-
             }
 
             override fun onFailure(call: Call<List<DataPenemuSuhuItem>?>, t: Throwable) {
+                binding.progressBar.visibility = View.VISIBLE
                 Log.d("SEJARAH SINGKAT", "ONFAILURE" + t.message)
             }
         })

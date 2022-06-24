@@ -26,7 +26,7 @@ class CelciusToFarenhitViewModel(private val db: SuhuDao) : ViewModel() {
         val hasil = (suhuCeclius * 9 / 5) + 32 // Hasil > Convert Dari Celcius Ke Farenhit
         val dataKonversi = SuhuEntity(
             suhuCelcius = suhuCeclius,
-            hasilConvertCelcius = "${hasil.toString()}°F"
+            hasilConvertCelcius = "${hasil}°F"
         )
         hasilKonversi.value = dataKonversi.hitungKonversiSuhu()
         viewModelScope.launch {
