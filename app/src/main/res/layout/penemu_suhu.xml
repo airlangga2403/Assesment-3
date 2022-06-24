@@ -6,10 +6,19 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+    <TextView
+        android:textSize="28sp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="KONEKSI ANDA ERROR !!!"
+        android:id="@+id/notfication_connectivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="350dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,6 +30,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollview1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >

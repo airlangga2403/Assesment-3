@@ -24,7 +24,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 const val BASE_URL = "https://mocki.io/"
 
 class SejarahSingkat : AppCompatActivity() {
-    private val CHANNEL_ID = "i.apps.notifications"
     lateinit var sejarahAdapter: SejarahAdapter
     private lateinit var binding: ActivitySejarahSingkatBinding
     lateinit var linearLayoutManager: LinearLayoutManager
@@ -37,11 +36,11 @@ class SejarahSingkat : AppCompatActivity() {
         recyclerview.layoutManager = linearLayoutManager
         binding.progressBar.visibility = View.VISIBLE
         if (checkForInternet(this)) {
-
+            binding.progressBar.visibility = View.GONE
             getMyData()
-
-
         } else {
+            binding.recyclerview.visibility = View.GONE
+            binding.notficationConnectivity.visibility = View.VISIBLE
             binding.progressBar.visibility = View.VISIBLE
             Toast.makeText(this, "Please Activated You Interenet Connection", Toast.LENGTH_SHORT)
                 .show()
@@ -52,7 +51,7 @@ class SejarahSingkat : AppCompatActivity() {
     private fun checkForInternet(context: Context): Boolean {
 
         val connectivityManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
